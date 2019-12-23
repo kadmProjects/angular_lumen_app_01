@@ -1,6 +1,6 @@
 <mat-card class="add-actors-card mat-elevation-z6">
     <mat-card-header>
-        <mat-card-title>Add Actors</mat-card-title>
+        <mat-card-title>Add Actor</mat-card-title>
     </mat-card-header>
     <hr/>
     <mat-card-content>
@@ -23,22 +23,29 @@
                     <input matInput placeholder="Birth Day" type="date" formControlName="birthday" id="birthday">
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                    <mat-label>Height</mat-label>
-                    <input matInput placeholder="Height" type="text" formControlName="height" id="height">
-                </mat-form-field>
+                    <mat-label>Height(cm)</mat-label>
+                    <input matInput placeholder="Height(cm)" type="number" formControlName="height" id="height">
+                    <span class="aactor-height-unit">cm</span>
+                </mat-form-field>                 
                 <mat-form-field appearance="outline">
                     <mat-label>Gender</mat-label>
-                    <input matInput placeholder="First Name" type="text" formControlName="firstName">
+                    <mat-select formControlName="gender">
+                        <mat-option>Male</mat-option>
+                        <mat-option>Female</mat-option>
+                    </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Home Town</mat-label>
-                    <input matInput placeholder="First Name" type="text" formControlName="firstName">
+                    <mat-select formControlName="town">
+                        <mat-option>Piliyandala</mat-option>
+                        <mat-option>Homagama</mat-option>
+                    </mat-select>
                 </mat-form-field>
                 <div>
-                    <button mat-raised-button class="aactor-submit" color="primary" type="submit" [disabled]="!addActorForm.valid">Submit</button>
-                    <button mat-raised-button class="aactor-reset" color="warn" type="reset">Reset</button>
+                <button mat-raised-button class="aactor-submit" color="primary" type="submit" [disabled]="!addActorForm.valid">Submit</button>
+                <button mat-raised-button class="aactor-reset" color="warn" type="reset">Reset</button>
                 </div>
             </form>
-        </div>         
+        </div>
     </mat-card-content>
 </mat-card>

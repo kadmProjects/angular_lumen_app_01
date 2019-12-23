@@ -11,6 +11,7 @@ import { Routes, RouterModule } from '@angular/router';
  */
 import { ActorsComponent } from './actors/actors.component';
 import { AddActorComponent } from './actors/add-actor/add-actor.component';
+import { AddTownComponent } from './towns/add-town/add-town.component';
 
 const routes: Routes = [
     {
@@ -45,6 +46,10 @@ const routes: Routes = [
     {
         path: 'towns', 
         component: TownsComponent
+    },
+    {
+        path: 'towns/add',
+        component: AddTownComponent
     }
 ];
 

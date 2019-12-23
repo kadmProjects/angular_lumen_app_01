@@ -9,7 +9,13 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class AddActorComponent implements OnInit {
 
     addActorForm = new FormGroup({
-        
+        firstname: new FormControl(''),
+        lastname: new FormControl(''),
+        email: new FormControl(''),
+        birthday: new FormControl(''),
+        height: new FormControl(''),
+        gender: new FormControl(''),
+        town: new FormControl(''),
     });
 
 constructor() { }
