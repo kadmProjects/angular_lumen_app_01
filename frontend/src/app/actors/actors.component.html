@@ -1,1 +1,12 @@
-<p>actors works!</p>
+<mat-card class="actors-card mat-elevation-z6">
+    <mat-card-header>
+        <mat-card-title>Actors</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <a mat-raised-button color="primary" routerLink="/actors/add" routerLinkActive="active">
+            <i class="material-icons">add</i>Add Actor
+        </a>
+    </mat-card-content>
+</mat-card>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,44 @@
+<mat-card class="add-actors-card mat-elevation-z6">
+    <mat-card-header>
+        <mat-card-title>Add Actors</mat-card-title>
+    </mat-card-header>
+    <hr/>
+    <mat-card-content>
+        <div class="aactorf-container">
+            <form [formGroup]="addActorForm" class="aactor-form" color="basic">
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="First Name" type="text" formControlName="firstname" id="firstname">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Last Name" type="text" formControlName="lastname" id="lastname">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" type="email" formControlName="email" id="email">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Birth Day</mat-label>
+                    <input matInput placeholder="Birth Day" type="date" formControlName="birthday" id="birthday">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Height</mat-label>
+                    <input matInput placeholder="Height" type="text" formControlName="height" id="height">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <input matInput placeholder="First Name" type="text" formControlName="firstName">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Home Town</mat-label>
+                    <input matInput placeholder="First Name" type="text" formControlName="firstName">
+                </mat-form-field>
+                <div>
+                    <button mat-raised-button class="aactor-submit" color="primary" type="submit" [disabled]="!addActorForm.valid">Submit</button>
+                    <button mat-raised-button class="aactor-reset" color="warn" type="reset">Reset</button>
+                </div>
+            </form>
+        </div>         
+    </mat-card-content>
+</mat-card>
