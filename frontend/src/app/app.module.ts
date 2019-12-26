@@ -1,10 +1,11 @@
 /** App Default Modules */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /** App Modules */
+import { AppRoutingModule } from './app-routing.module';
 import { MaterialComponentsModule } from './material-components/material-components.module';
 import { ActorsModule } from './actors/actors.module';
 import { TownsModule } from './towns/towns.module';
@@ -30,7 +31,8 @@ import { AppComponent } from './app.component';
         DashboardModule,
         DirectorsModule,
         MoviesModule,
-        TownsModule
+        TownsModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]

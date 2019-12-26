@@ -5,29 +5,29 @@
     <hr/>
     <mat-card-content>
         <div class="atownf-container">
-            <form [formGroup]="addTownForm" class="atown-form" color="basic">
+            <form [formGroup]="addTownForm" class="atown-form" color="basic" (ngSubmit)="onSubmit()">
                 <mat-form-field appearance="outline">
                     <mat-label>Town Name</mat-label>
-                    <input matInput placeholder="Town Name" type="text" formControlName="townname" id="townname" #townname>
+                    <input matInput placeholder="Town Name" type="text" formControlName="town_name" id="town_name" required>
+                <mat-error *ngIf="addTownForm.controls['town_name']?.errors">{{ showErrorMsg('town_name') }}</mat-error>
                 </mat-form-field>
-                <div *ngIf="townname.invalid && (townname.dirty || townname.touched)" class="alert alert-danger">
-                    <div *ngIf="townname.errors.required">Town Name is required.</div>
-                </div>
                 <mat-form-field appearance="outline">
                     <mat-label>Country Name</mat-label>
-                    <input matInput placeholder="Country Name" type="text" formControlName="countryname" id="countryname">
+                    <input matInput placeholder="Country Name" type="text" formControlName="country_name" id="country_name" required>
+                    <mat-error *ngIf="addTownForm.controls['country_name']?.errors">{{ showErrorMsg('country_name') }}</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Country Code</mat-label>
-                    <input matInput placeholder="Country Code" type="text" formControlName="countrycode" id="countrycode">
+                    <input matInput placeholder="Country Code" type="text" formControlName="country_code" id="country_code" required>
+                    <mat-error *ngIf="addTownForm.controls['country_code']?.errors">{{ showErrorMsg('country_code') }}</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Country Code(ISO)</mat-label>
-                    <input matInput placeholder="Country Code(ISO)" type="text" formControlName="isocountrycode" id="isocountrycode">
+                    <input matInput placeholder="Country Code(ISO)" type="text" formControlName="iso_country_code" id="iso_country_code">
                 </mat-form-field>
                 <div>
-                <button mat-raised-button class="atown-submit" color="primary" type="submit" [disabled]="!addTownForm.valid">Submit</button>
-                <button mat-raised-button class="atown-reset" color="warn" type="reset">Reset</button>
+                    <button mat-raised-button class="atown-submit" color="primary" type="submit" [disabled]="!addTownForm.valid">Submit</button>
+                    <button mat-raised-button class="atown-reset" color="warn" type="reset">Reset</button>
                 </div>
             </form>
         </div>

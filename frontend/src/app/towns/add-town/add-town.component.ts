@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormValidationMsgsService } from './../../../services/form-validation-msgs.service';
 
 @Component({
     selector: 'app-add-town',
@@ -10,15 +11,28 @@ export class AddTownComponent implements OnInit {
     // Typescript variable type declaration
     addTownForm : FormGroup;
 
-    constructor() { }
+    constructor(private validationMsgs: FormValidationMsgsService) { }
 
     ngOnInit() {
+        this.createFormControls();
+    }
+
+    createFormControls() {
         this.addTownForm = new FormGroup({
-            townname: new FormControl('', Validators.required),
-            countryname: new FormControl('', Validators.required),
-            countrycode: new FormControl('', Validators.required),
-            isocountrycode: new FormControl('',Validators.required)
+            town_name: new FormControl('', [Validators.required, Validators.minLength(2)]),
+            country_name: new FormControl('', [Validators.required, Validators.minLength(2)]),
+            country_code: new FormControl('', [Validators.required]),
+            iso_country_code: new FormControl('')
         });
     }
 
+    showErrorMsg(fieldName) {
+        let obj = this.addTownForm.controls[fieldName];
+        return this.validationMsgs.showValidationMsg(fieldName, obj);
+    }
+
+    onSubmit() {
+        console.log(this.addTownForm.value);
+        //this.addTownForm.reset();
+    }
 }
