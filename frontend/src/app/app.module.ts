@@ -14,6 +14,9 @@ import { DirectorsModule } from './directors/directors.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CompaniesModule } from './companies/companies.module';
 
+/** App Services */
+import { FormValidationMsgsService } from './../services/form-validation-msgs.service';
+
 /** App Components */
 import { AppComponent } from './app.component';
 
@@ -34,7 +37,9 @@ import { AppComponent } from './app.component';
         TownsModule,
         HttpClientModule
     ],
-    providers: [],
+    providers: [
+        FormValidationMsgsService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
