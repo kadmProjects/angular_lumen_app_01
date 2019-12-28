@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { Observable } from 'rxjs';
-import { Town } from './interfaces/town';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -14,6 +13,7 @@ export class TownService {
     constructor(private http: HttpClient) {}
 
     addTown(townData) {
-        return this.http.post<Town>(this._url, townData);
+        let target = this._url + 'town';
+        return this.http.post(target, JSON.stringify(townData));
     }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormValidationMsgsService } from './../../../services/form-validation-msgs.service';
+import { TownService } from './../../../services/town.service';
 
 @Component({
     selector: 'app-add-town',
@@ -11,7 +12,10 @@ export class AddTownComponent implements OnInit {
     // Typescript variable type declaration
     addTownForm : FormGroup;
 
-    constructor(private validationMsgs: FormValidationMsgsService) { }
+    constructor(
+        private validationMsgs: FormValidationMsgsService,
+        private townService: TownService
+        ) {}
 
     ngOnInit() {
         this.createFormControls();
@@ -32,7 +36,9 @@ export class AddTownComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log(this.addTownForm.value);
-        //this.addTownForm.reset();
+        this.townService.addTown(this.addTownForm.value)
+            .subscribe((resp) => {
+                console.log(resp);
+            });
     }
 }
