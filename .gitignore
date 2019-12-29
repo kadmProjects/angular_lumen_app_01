@@ -50,5 +50,5 @@
 # Backend
 /backend/vendor
 /backend/.phpunit.result.cache
-
+backend/.env
 backend.zip

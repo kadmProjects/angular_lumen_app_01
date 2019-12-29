@@ -14,10 +14,11 @@ class HomeTownController extends Controller {
     }
 
     public function store(Request $request) {
-        try {
+        $townName = $request->input('town_name');
+        $countryName = $request->input('country_name');
+        $countryCode = $request->input('country_code');
+        $countryIsoCode = $request->input('iso_country_code');
 
-        } catch(Exception $e) {
-
-        }
+        var_dump($townName);
     }
 }
