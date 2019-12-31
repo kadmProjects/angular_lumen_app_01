@@ -20,7 +20,7 @@ class HomeTownController extends Controller {
 
         try {
             $homeTown = new HomeTown();
-            $homeTown->name = $request->input('town_namedc');
+            $homeTown->name = $request->input('town_name');
             $homeTown->country = $request->input('country_name');
             $homeTown->country_code = $request->input('country_code');
             $homeTown->country_iso_code = $request->input('iso_country_code');

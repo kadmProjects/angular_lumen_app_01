@@ -16,6 +16,9 @@ import { CompaniesModule } from './companies/companies.module';
 
 /** App Services */
 import { FormValidationMsgsService } from './../services/form-validation-msgs.service';
+import { HttpErrorHandlerService } from './../services/http-error-handler.service';
+import { AlertNotificationService } from './../services/alert-notification.service';
+import { TownService } from './../services/town.service';
 
 /** App Components */
 import { AppComponent } from './app.component';
@@ -38,7 +41,10 @@ import { AppComponent } from './app.component';
         HttpClientModule
     ],
     providers: [
-        FormValidationMsgsService
+        FormValidationMsgsService,
+        HttpErrorHandlerService,
+        AlertNotificationService,
+        TownService
     ],
     bootstrap: [AppComponent]
 })
