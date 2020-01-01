@@ -8,13 +8,13 @@
             <form [formGroup]="addTownForm" class="atown-form" color="basic" (ngSubmit)="onSubmit()">
                 <mat-form-field appearance="outline">
                     <mat-label>Town Name</mat-label>
-                    <input matInput placeholder="Town Name" type="text" formControlName="town_name" id="town_name" required>
-                <mat-error *ngIf="addTownForm.controls['town_name']?.errors">{{ showErrorMsg('town_name') }}</mat-error>
+                    <input matInput placeholder="Town Name" type="text" formControlName="name" id="name" required>
+                <mat-error *ngIf="addTownForm.controls['name']?.errors">{{ showErrorMsg('name') }}</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Country Name</mat-label>
-                    <input matInput placeholder="Country Name" type="text" formControlName="country_name" id="country_name" required>
-                    <mat-error *ngIf="addTownForm.controls['country_name']?.errors">{{ showErrorMsg('country_name') }}</mat-error>
+                    <input matInput placeholder="Country Name" type="text" formControlName="country" id="country" required>
+                    <mat-error *ngIf="addTownForm.controls['country']?.errors">{{ showErrorMsg('country') }}</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Country Code</mat-label>
@@ -23,7 +23,7 @@
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Country Code(ISO)</mat-label>
-                    <input matInput placeholder="Country Code(ISO)" type="text" formControlName="iso_country_code" id="iso_country_code">
+                    <input matInput placeholder="Country Code(ISO)" type="text" formControlName="country_iso_code" id="country_iso_code">
                 </mat-form-field>
                 <div>
                     <button mat-raised-button class="atown-submit" color="primary" type="submit" [disabled]="!addTownForm.valid">Submit</button>

@@ -30,10 +30,10 @@ export class AddTownComponent implements OnInit {
 
     createFormControls() {
         this.addTownForm = new FormGroup({
-            town_name: new FormControl('', [Validators.required, Validators.minLength(2)]),
-            country_name: new FormControl('', [Validators.required, Validators.minLength(2)]),
+            name: new FormControl('', [Validators.required, Validators.minLength(2)]),
+            country: new FormControl('', [Validators.required, Validators.minLength(2)]),
             country_code: new FormControl('', [Validators.required]),
-            iso_country_code: new FormControl('')
+            country_iso_code: new FormControl('')
         });
     }
 

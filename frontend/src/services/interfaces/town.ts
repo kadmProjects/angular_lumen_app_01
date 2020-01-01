@@ -1,6 +1,9 @@
 export interface Town {
-    town_name: string;
-    country_name: string;
+    id: number;
+    name: string;
+    country: string;
     country_code: string;
-    iso_country_code: string;
+    country_iso_code: string;
+    created_at: string;
+    updated_at: string;
 }

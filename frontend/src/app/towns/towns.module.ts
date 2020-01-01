@@ -7,12 +7,16 @@ import { MaterialComponentsModule } from '../material-components/material-compon
 
 import { TownsComponent } from './towns.component';
 import { AddTownComponent } from './add-town/add-town.component';
+import { EditTownComponent } from './edit-town/edit-town/edit-town.component';
+import { ViewTownComponent } from './view-town/view-town/view-town.component';
 
 
 @NgModule({
     declarations: [
         TownsComponent,
-        AddTownComponent
+        AddTownComponent,
+        EditTownComponent,
+        ViewTownComponent
     ],
     imports: [
         CommonModule,

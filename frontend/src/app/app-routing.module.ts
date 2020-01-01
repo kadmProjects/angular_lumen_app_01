@@ -50,7 +50,15 @@ const routes: Routes = [
     {
         path: 'towns/add',
         component: AddTownComponent
-    }
+    },
+    {
+        path: 'towns/edit/:id', 
+        component: TownsComponent
+    },
+    {
+        path: 'towns/view/:id', 
+        component: TownsComponent
+    },
 ];
 
 @NgModule({

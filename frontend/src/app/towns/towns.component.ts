@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TownService } from './../../services/town.service';
 import { AlertNotificationService } from 'src/services/alert-notification.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { Town } from 'src/services/interfaces/town';
 
@@ -10,8 +13,21 @@ import { Town } from 'src/services/interfaces/town';
     styleUrls: ['./towns.component.scss']
 })
 export class TownsComponent implements OnInit {
-    towns: Town;
-    displayedColumns: string[] = ['ID', 'NAME', 'COUNTRY', 'COUNTRY_CODE', 'COUNTRY_ISO_CODE', 'DATE_CREATED', 'DATE_UPDATED', 'ACTION'];
+    towns;
+    displayedColumns: string[] = [
+        'id',
+        'name',
+        'country',
+        'country_code',
+        'country_iso_code',
+        'created_at',
+        'updated_at',
+        'action'
+    ];
+    dataSource: MatTableDataSource<Town>;
+
+    @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+    @ViewChild(MatSort, {static: true}) sort: MatSort;
 
     constructor(
         private townService: TownService,
@@ -28,6 +44,9 @@ export class TownsComponent implements OnInit {
                 // next calback
                 (data: Town) => {
                     this.towns = data;
+                    this.dataSource = new MatTableDataSource(this.towns);
+                    this.dataSource.paginator = this.paginator;
+                    this.dataSource.sort = this.sort;
                 },
                 // error callback
                 error => {
@@ -38,6 +57,17 @@ export class TownsComponent implements OnInit {
                     console.log('A GET round is Completed');
                 }
             )
+    }
+
+    public applyFilter(filterValue: string) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();  
+        if (this.dataSource.paginator) {
+            this.dataSource.paginator.firstPage();
+        }
+    }
+
+    public deleteTown(id: number){
+        console.log(id);
     }
 
 }
