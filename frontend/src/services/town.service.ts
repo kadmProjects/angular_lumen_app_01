@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -17,7 +17,7 @@ export class TownService {
     constructor(
         private http: HttpClient,
         private httpErrorMsg: HttpErrorHandlerService
-        ) {}
+    ) {}
 
     public addTown(townData: Town): Observable<Town> {
         let targetURL = this._url + 'town';
@@ -28,6 +28,15 @@ export class TownService {
         };
 
         return this.http.post<Town>(targetURL, townData, httpOptions)
+            .pipe(
+                catchError(this.httpErrorMsg.handleError)
+            );
+    }
+
+    public getAllTowns(): Observable<Town> {
+        let sourceURL = this._url + 'town';
+
+        return this.http.get<Town>(sourceURL)
             .pipe(
                 catchError(this.httpErrorMsg.handleError)
             );

@@ -12,7 +12,7 @@ class HomeTownController extends Controller {
     public function __construct() {}
 
     public function index() {
-        echo 'this is index method';
+        return response()->json(HomeTown::all());
     }
 
     public function store(Request $request) {
@@ -28,14 +28,12 @@ class HomeTownController extends Controller {
 
             $response->status = 'success';
             $response->msg = 'Home town created successfully!';
-
         } catch(\Exception $e) {
             Log::info('Failed to create the home town : ' . $e);
             $response->status = 'failed';
             $response->msg = 'Failed to create the Home Town';
-
         }
 
-        echo json_encode($response);
+        return response()->json($response);
     }
 }
