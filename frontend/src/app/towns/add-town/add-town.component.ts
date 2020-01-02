@@ -47,7 +47,7 @@ export class AddTownComponent implements OnInit {
             this.townService.addTown(this.addTownForm.value)
                 .subscribe(
                     // next calback
-                    (data: Town) => {
+                    (data) => {
                         if (data['status'] == 'success') {
                             this.alertMsg.openSnackBar(data['msg'], data['status']);
                             setTimeout(() => this.formGroupDirective.resetForm(), 0);

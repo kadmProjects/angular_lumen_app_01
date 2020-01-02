@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { TownService } from './../../services/town.service';
 import { AlertNotificationService } from 'src/services/alert-notification.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Town } from 'src/services/interfaces/town';
 
@@ -31,7 +32,8 @@ export class TownsComponent implements OnInit {
 
     constructor(
         private townService: TownService,
-        private alertMsg: AlertNotificationService
+        private alertMsg: AlertNotificationService,
+        public dialog: MatDialog
     ) {}
 
     ngOnInit() {
@@ -66,8 +68,27 @@ export class TownsComponent implements OnInit {
         }
     }
 
-    public deleteTown(id: number){
-        console.log(id);
+    public deleteTown(id: number) {
+        this.townService.deleteTown(id)
+            .subscribe(
+                // next calback
+                (data) => {
+                    if (data['status'] == 'success') {
+                        this.alertMsg.openSnackBar(data['msg'], data['status']);
+                        this.getAllTownsToDisplay();
+                    } else {
+                        this.alertMsg.openSnackBar(data['msg'], data['status']);
+                    }
+                },
+                // error callback
+                error => {
+                    this.alertMsg.openSnackBar(error, 'Failed');
+                },
+                // complete callback
+                () => {
+                    console.log('A GET round is Completed');
+                }
+            )
     }
 
 }

@@ -36,4 +36,23 @@ class HomeTownController extends Controller {
 
         return response()->json($response);
     }
+
+    public function delete($id) {
+        $response = new \stdClass();
+
+        try {
+            $town = HomeTown::find($id);
+            $town->delete();
+
+            $response->status = 'success';
+            $response->msg = 'Home town deleted successfully!';
+        } catch(\Exception $e) {
+            Log::info('Failed to create the home town : ' . $e);
+
+            $response->status = 'failed';
+            $response->msg = 'Failed to delete the Home town';
+        }
+
+        return response()->json($response);
+    }
 }

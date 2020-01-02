@@ -41,4 +41,13 @@ export class TownService {
                 catchError(this.httpErrorMsg.handleError)
             );
     }
+
+    public deleteTown(id: number): Observable<{}> {
+        let targetURL = `${this._url}/town/${id}`;
+
+        return this.http.delete(targetURL)
+            .pipe(
+                catchError(this.httpErrorMsg.handleError)
+            );
+    }
 }

@@ -13,6 +13,7 @@ import { MoviesModule } from './movies/movies.module';
 import { DirectorsModule } from './directors/directors.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CompaniesModule } from './companies/companies.module';
+import { AlertboxModule } from './alertbox/alertbox.module';
 
 /** App Services */
 import { FormValidationMsgsService } from './../services/form-validation-msgs.service';
@@ -38,7 +39,8 @@ import { AppComponent } from './app.component';
         DirectorsModule,
         MoviesModule,
         TownsModule,
-        HttpClientModule
+        HttpClientModule,
+        AlertboxModule
     ],
     providers: [
         FormValidationMsgsService,
