@@ -12,6 +12,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ActorsComponent } from './actors/actors.component';
 import { AddActorComponent } from './actors/add-actor/add-actor.component';
 import { AddTownComponent } from './towns/add-town/add-town.component';
+import { EditTownComponent } from './towns/edit-town/edit-town/edit-town.component';
+import { ViewTownComponent } from './towns/view-town/view-town/view-town.component';
 
 const routes: Routes = [
     {
@@ -53,11 +55,11 @@ const routes: Routes = [
     },
     {
         path: 'towns/edit/:id', 
-        component: TownsComponent
+        component: EditTownComponent
     },
     {
         path: 'towns/view/:id', 
-        component: TownsComponent
+        component: ViewTownComponent
     },
 ];
 

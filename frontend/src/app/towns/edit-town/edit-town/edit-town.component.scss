@@ -1,0 +1,24 @@
+.update-towns-card {
+    margin-top: 3%;
+    margin-right: 25%;
+    margin-left: 25%;
+}
+
+.utownf-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+
+.utown-form > * {
+    width: 100%;
+}
+
+.utown-submit {
+    width: 49%;
+    margin-right: 2%;
+}
+
+.utown-reset {
+    width: 49%;
+}

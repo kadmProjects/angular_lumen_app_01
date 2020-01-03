@@ -42,10 +42,33 @@ export class TownService {
             );
     }
 
-    public deleteTown(id: number): Observable<{}> {
+    public getTown(id: string): Observable<Town> {
         let targetURL = `${this._url}/town/${id}`;
 
-        return this.http.delete(targetURL)
+        return this.http.get<Town>(targetURL)
+            .pipe(
+                catchError(this.httpErrorMsg.handleError)
+            );
+    }
+
+    public updateTown(id: number, townData: Town): Observable<Town> {
+        let targetURL = `${this._url}/town/${id}`;
+        let httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json'
+            })
+        };
+
+        return this.http.put<Town>(targetURL, townData, httpOptions)
+            .pipe(
+                catchError(this.httpErrorMsg.handleError)
+            );
+    }
+
+    public deleteTown(id: number): Observable<Town> {
+        let targetURL = `${this._url}/town/${id}`;
+
+        return this.http.delete<Town>(targetURL)
             .pipe(
                 catchError(this.httpErrorMsg.handleError)
             );

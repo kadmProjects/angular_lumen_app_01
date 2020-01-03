@@ -1,1 +1,28 @@
-<p>view-town works!</p>
+<mat-card class="towns-card mat-elevation-z6">
+    <a mat-raised-button color="primary" routerLink="/towns" routerLinkActive="active" class="btn-back">
+        <i class="material-icons">arrow_back</i>Back
+    </a>
+    <mat-card-content>
+        <div class="mat-elevation-z8 town-details">
+            <p class="mat-headline">View Town</p>
+            <mat-divider [inset]="true"></mat-divider>
+            <p class="mat-subheading-2" *ngIf="town?.id"><strong>ID - </strong>{{ town.id }}</p>
+            <mat-divider [inset]="true"></mat-divider>
+            <p class="mat-subheading-2" *ngIf="town?.name"><strong>NAME - </strong>{{ town.name }}</p>
+            <mat-divider [inset]="true"></mat-divider>
+            <p class="mat-subheading-2" *ngIf="town?.country"><strong>COUNTRY - </strong>{{ town.country }}</p>
+            <mat-divider [inset]="true"></mat-divider>
+            <p class="mat-subheading-2" *ngIf="town?.country_code"><strong>COUNTRY CODE - </strong>{{ town.country_code }}</p>
+            <mat-divider [inset]="true"></mat-divider>
+            <p class="mat-subheading-2" *ngIf="town?.country_iso_code"><strong>COUNTRY CODE(ISO) - </strong>{{ town.country_iso_code }}</p>
+            <mat-divider [inset]="true"></mat-divider>
+            <p class="mat-subheading-2" *ngIf="town?.created_at"><strong>DATE CREATED - </strong>{{ town.created_at }}</p>
+            <mat-divider [inset]="true"></mat-divider>
+            <p class="mat-subheading-2" *ngIf="town?.updated_at"><strong>DATE UPDATED - </strong>{{ town.updated_at }}</p>
+            <mat-divider [inset]="true"></mat-divider>
+            <a mat-raised-button color="accent" routerLink="/towns/edit/{{ town.id }}" class="btn-edit" *ngIf="town?.id">
+                <i class="material-icons">edit</i>edit
+            </a>
+        </div>
+    </mat-card-content>
+</mat-card>

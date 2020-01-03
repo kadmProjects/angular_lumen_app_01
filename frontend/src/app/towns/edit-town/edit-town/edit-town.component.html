@@ -1,1 +1,35 @@
-<p>edit-town works!</p>
+<mat-card class="update-towns-card mat-elevation-z6">
+    <mat-card-header>
+        <mat-card-title>Update Town</mat-card-title>
+    </mat-card-header>
+    <hr/>
+    <mat-card-content>
+        <div class="utownf-container">
+            <form [formGroup]="updateTownForm" class="utown-form" color="basic" (ngSubmit)="onSubmit()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Town Name</mat-label>
+                    <input matInput placeholder="Town Name" type="text" formControlName="name" id="name" required>
+                <mat-error *ngIf="updateTownForm.controls['name']?.errors">{{ showErrorMsg('name') }}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Country Name</mat-label>
+                    <input matInput placeholder="Country Name" type="text" formControlName="country" id="country" required>
+                    <mat-error *ngIf="updateTownForm.controls['country']?.errors">{{ showErrorMsg('country') }}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Country Code</mat-label>
+                    <input matInput placeholder="Country Code" type="text" formControlName="country_code" id="country_code" required>
+                    <mat-error *ngIf="updateTownForm.controls['country_code']?.errors">{{ showErrorMsg('country_code') }}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Country Code(ISO)</mat-label>
+                    <input matInput placeholder="Country Code(ISO)" type="text" formControlName="country_iso_code" id="country_iso_code">
+                </mat-form-field>
+                <div>
+                    <button mat-raised-button class="utown-submit" color="primary" type="submit" [disabled]="!updateTownForm.valid">Submit</button>
+                    <button mat-raised-button class="utown-reset" color="warn" type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+    </mat-card-content>
+</mat-card>
